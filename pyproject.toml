@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-config-bench"
+version = "0.2.0"
+description = "Ablation framework for tool-using agents: tools, skills, model choice, with bootstrap CIs."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Sai Akhilesh Vangala" }]
+keywords = ["llm-evaluation", "agentic-ai", "mcp", "ablation", "bootstrap"]
+dependencies = [
+  "matplotlib>=3.8",
+  "pydantic>=2.7.0",
+  "pyyaml>=6.0",
+  "rich>=13.7.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+agent-config-bench = "agent_config_bench.cli:main"
+agentbench-cmg = "agent_config_bench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

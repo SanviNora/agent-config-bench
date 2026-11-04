@@ -1,0 +1,10 @@
+{
+  "rows": [
+    {"config": "A_closed_book", "task_id": "T1", "category": "label", "passed": false, "checks": {"status": true, "claims": false}, "claim_precision": 0.0, "cost_usd_list_price": 0.001, "tool_calls": 0, "latency_s": 1.0, "hallucinated_ncts": ["NCT0"], "failed_claim_reasons": ["unverified"]},
+    {"config": "A_closed_book", "task_id": "T2", "category": "refusal", "passed": true, "checks": {"status": true}, "claim_precision": 1.0, "cost_usd_list_price": 0.001, "tool_calls": 0, "latency_s": 1.0, "hallucinated_ncts": [], "failed_claim_reasons": []},
+    {"config": "B_tools_only", "task_id": "T1", "category": "label", "passed": true, "checks": {"status": true, "claims": true}, "claim_precision": 0.9, "cost_usd_list_price": 0.002, "tool_calls": 3, "latency_s": 2.0, "hallucinated_ncts": [], "failed_claim_reasons": []},
+    {"config": "B_tools_only", "task_id": "T2", "category": "refusal", "passed": false, "checks": {"status": false}, "claim_precision": 0.5, "cost_usd_list_price": 0.002, "tool_calls": 2, "latency_s": 2.0, "hallucinated_ncts": [], "failed_claim_reasons": []},
+    {"config": "C_tools_skills", "task_id": "T1", "category": "label", "passed": true, "checks": {"status": true, "claims": true}, "claim_precision": 1.0, "cost_usd_list_price": 0.003, "tool_calls": 2, "latency_s": 2.5, "hallucinated_ncts": [], "failed_claim_reasons": []},
+    {"config": "C_tools_skills", "task_id": "T2", "category": "refusal", "passed": true, "checks": {"status": true}, "claim_precision": 1.0, "cost_usd_list_price": 0.003, "tool_calls": 1, "latency_s": 2.5, "hallucinated_ncts": [], "failed_claim_reasons": []}
+  ]
+}

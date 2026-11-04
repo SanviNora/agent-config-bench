@@ -1,0 +1,34 @@
+name: default
+seed: 42
+bootstrap_resamples: 4000
+configs:
+  - id: BASELINE
+    label: Fixed pipeline (no LLM)
+    model: null
+    mcp_tools: false
+    skills: false
+    notes: Hard-coded retrieval + template; no LLM.
+  - id: A_closed_book
+    label: A. Claude, no tools
+    model: claude-haiku
+    mcp_tools: false
+    skills: false
+    notes: Closed-book LLM; measures hallucination baseline.
+  - id: B_tools_only
+    label: B. Claude + MCP tools
+    model: claude-haiku
+    mcp_tools: true
+    skills: false
+    notes: Tools without reusable skills.
+  - id: C_tools_skills
+    label: C. Claude + MCP tools + skills
+    model: claude-haiku
+    mcp_tools: true
+    skills: true
+    notes: Full stack on Haiku (primary recommended config).
+  - id: D_tools_skills_sonnet
+    label: D. C on Sonnet
+    model: claude-sonnet
+    mcp_tools: true
+    skills: true
+    notes: Same as C with a larger model; cost/quality check.

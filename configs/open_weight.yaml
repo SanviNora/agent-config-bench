@@ -1,0 +1,21 @@
+name: open_weight
+seed: 42
+bootstrap_resamples: 4000
+configs:
+  - id: C_tools_skills
+    label: C. Claude Haiku + tools + skills
+    model: claude-haiku
+    mcp_tools: true
+    skills: true
+  - id: E_open_weight
+    label: E. Qwen 2.5 7B + same tools and skills
+    model: qwen2.5:7b
+    mcp_tools: true
+    skills: true
+    notes: Ollama local; same MCP tools and skill packs as C.
+  - id: F_routed
+    label: F. Haiku default, Sonnet on escalate
+    model: routed-haiku-sonnet
+    mcp_tools: true
+    skills: true
+    notes: Route to Sonnet only when review/escalation skill fires.

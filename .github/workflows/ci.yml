@@ -1,0 +1,25 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -e ".[dev]"
+      - name: Validate suites
+        run: |
+          agent-config-bench validate-suite suites/healthcare_dev.json --split dev
+          agent-config-bench validate-suite suites/healthcare_heldout.json --split heldout
+          agent-config-bench validate-suite suites/robustness_tool_faults.json --split robustness
+      - name: Stub run + pytest
+        run: |
+          agent-config-bench stub-run suites/healthcare_heldout.json --out results/stub_eval.json
+          pytest -q
+      - name: Re-analyze primary raw (if present)
+        run: agent-config-bench analyze results/raw/eval-*.json
